@@ -1,6 +1,12 @@
 # ===== Inicialização =====
 # ----- Importa e inicia pacotes
+# 0 - Verde
+# 1 - Vermelho
+# 2 - Amarelo
+# 3 - Azul
+
 import pygame
+import random
 
 pygame.init()
 
@@ -10,6 +16,16 @@ verde_rect = pygame.Rect(150,20,40,40)
 amarelo_rect = pygame.Rect(150,100,40,40)
 vermelho_rect = pygame.Rect(200,20,40,40)
 azul_rect = pygame.Rect(200,100,40,40)
+
+# Gerando sequencia para o jogo
+lista = []
+i = 0
+
+while i < 10:
+    lista.append([random.randint(0, 3)])
+    i += 1
+print(lista)
+
 
 # ----- Gera tela principal
 window = pygame.display.set_mode((500, 400))
