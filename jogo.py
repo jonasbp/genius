@@ -8,7 +8,15 @@
 import pygame
 import random
 
+
 pygame.init()
+pygame.mixer.init()
+
+# Carrega os sons do jogo
+som_00 = pygame.mixer.Sound('sons/00.wav')
+som_01 = pygame.mixer.Sound('sons/01.wav')
+som_02 = pygame.mixer.Sound('sons/02.wav')
+som_03 = pygame.mixer.Sound('sons/03.wav')
 
 VERDE = (0,200,0)
 # Variaveis para os retangulos
@@ -22,10 +30,18 @@ lista = []
 i = 0
 
 while i < 10:
-    lista.append([random.randint(0, 3)])
+    lista.append(random.randint(0, 3))
     i += 1
 print(lista)
 
+# MANIPULA DADOS
+#print(lista)
+
+contador = 0
+flag = True
+
+# Importando sons
+som_00 = pygame.mixer.Sound("sons/00.wav")
 
 # ----- Gera tela principal
 window = pygame.display.set_mode((500, 400))
@@ -36,25 +52,33 @@ game = True
 
 # ===== Loop principal =====
 while game:
+
+    while contador == lista[0]:
+        print("oi")
+        contador = contador + 1
+
     # ----- Trata eventos
     for event in pygame.event.get():
         # ----- Verifica consequências
         if event.type == pygame.QUIT:
             game = False
 
-        # PERGUNTAR DA POSIÇÃO
-        elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             pos = pygame.mouse.get_pos()
-            print(pos)
+            #print(pos)
             if verde_rect.collidepoint(pos):
-                print("Verde")
-            if amarelo_rect.collidepoint(pos):
-                print("Amarelo")
+                print("Parabéns o correto é verde!")
+                som_00.play()
             if vermelho_rect.collidepoint(pos):
                 print("Vermelho")
+                som_01.play()
+            if amarelo_rect.collidepoint(pos):
+                print("Amarelo")
+                som_02.play()
             if azul_rect.collidepoint(pos):
                 print("Azul")
-
+                som_03.play()
+                #and lista[0] == 0
     # ----- Gera saídas
     window.fill((255, 255, 255))  # Preenche com a cor branca
     r_verde = pygame.draw.rect(window, (VERDE), (verde_rect))
