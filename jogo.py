@@ -44,12 +44,12 @@ azul_rect = pygame.Rect(250,180,150,150)
 
 # Gerando sequencia de 10 cores
 lista = []
+ck = []
 i = 0
 while i < 10:
     lista.append(random.randint(0, 3))
     i += 1
 print(lista)
-
 #POSSIBILIDADES DE RETÂNGULOS
 def r_base(window):
     window.fill((0, 0, 0))  # Preenche com a cor branca
@@ -104,6 +104,68 @@ def novo_teste(liga):
         SOM03.play()
         pygame.time.wait(1500)
 
+def round3():
+    r_base(window)
+    pygame.time.wait(500)
+    novo_teste(lista[0])
+    pygame.time.wait(500)
+    r_base(window)
+    pygame.time.wait(500)
+    novo_teste(lista[1])
+
+def round4():
+    r_base(window)
+    pygame.time.wait(500)
+    novo_teste(lista[0])
+    pygame.time.wait(500)
+    r_base(window)
+    pygame.time.wait(500)
+    novo_teste(lista[1])
+    pygame.time.wait(500)
+    novo_teste(lista[2])
+def round5():
+    r_base(window)
+    pygame.time.wait(500)
+    novo_teste(lista[0])
+    pygame.time.wait(500)
+    r_base(window)
+    pygame.time.wait(500)
+    novo_teste(lista[1])
+    pygame.time.wait(500)
+    novo_teste(lista[2])
+    pygame.time.wait(500)
+    novo_teste(lista[3])
+def round6():
+    r_base(window)
+    pygame.time.wait(500)
+    novo_teste(lista[0])
+    pygame.time.wait(500)
+    r_base(window)
+    pygame.time.wait(500)
+    novo_teste(lista[1])
+    pygame.time.wait(500)
+    novo_teste(lista[2])
+    pygame.time.wait(500)
+    novo_teste(lista[3])
+    pygame.time.wait(500)
+    novo_teste(lista[4])
+def round7():
+    r_base(window)
+    pygame.time.wait(500)
+    novo_teste(lista[0])
+    pygame.time.wait(500)
+    r_base(window)
+    pygame.time.wait(500)
+    novo_teste(lista[1])
+    pygame.time.wait(500)
+    novo_teste(lista[2])
+    pygame.time.wait(500)
+    novo_teste(lista[3])
+    pygame.time.wait(500)
+    novo_teste(lista[4])
+    pygame.time.wait(500)
+    novo_teste(lista[5])
+
 # ----- Gera tela principal
 window = pygame.display.set_mode((500, 400))
 pygame.display.set_caption('GENIUS')
@@ -114,81 +176,74 @@ flag0 = True
 flag1 = True
 flag2 = True
 flag3 = True
+flag4 = True
+flag5 = True
+flag6 = True
+flag7 = True
 while game:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game = False
         r_base(window)
-        if lista[0] == 0 and flag0 == True:
-            r_verde_claro(window)
-            SOM00.play()
-            pygame.time.wait(1500)
-            flag0 = False
-        elif lista[0] == 1 and flag0 == True:
-            r_vermelho_claro(window)
-            SOM01.play()
-            pygame.time.wait(1500)
-            flag0 = False
-        elif lista[0] == 2 and flag0 == True:
-            r_amarelo_claro(window)
-            SOM02.play()
-            pygame.time.wait(1500)
-            flag0 = False
-        elif lista[0] == 3 and flag0 == True:
-            r_azul_claro(window)
-            SOM03.play()
-            pygame.time.wait(1500)
+
+        #TOCA O 1
+        if flag0 == True:
+            novo_teste(lista[0])
             flag0 = False
 
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             pos = pygame.mouse.get_pos()
-            #print(pos)
-            if verde_rect.collidepoint(pos) and lista[0] == 0:
-                print("Parabéns o correto é verde!")
-                r_verde_claro(window)
-                SOM00.play()
-                pygame.time.wait(1500)
-                r_base(window)
-                pygame.time.wait(1500)
-                novo_teste(lista[0])
-                novo_teste(lista[1])
+            if verde_rect.collidepoint(pos) == 1:
+                print("Você apertou certo")
+                ck.append(0)
+                print(ck)
+            if vermelho_rect.collidepoint(pos) == 1:
+                print("Você apertou certo")
+                ck.append(1)
+                print(ck)
+            if amarelo_rect.collidepoint(pos) == 1:
+                print("Você apertou certo")
+                ck.append(2)
+                print(ck)
+            if azul_rect.collidepoint(pos) == 1:
+                print("Você apertou certo")
+                ck.append(3)
+                print(ck)
 
-            elif vermelho_rect.collidepoint(pos) and lista[0] == 1:
-                print("Vermelho")
-                r_vermelho_claro(window)
-                SOM01.play()
-                pygame.time.wait(1500)
-                r_base(window)
-                pygame.time.wait(1500)
-                novo_teste(lista[0])
-                novo_teste(lista[1])
+            if ck[0] == lista[0] and ck[0] != "z":
+                print("0i")
+                round3()
+                ck = ["z"]
+            
+            if len(ck) >= 3:
+                if ck[1] == lista[0] and ck[2] == lista[1] and flag4 == True:
+                    print("Next level")
+                    round4()
+                    print("aquiii")
+                    flag4 = False
+                    ck = ["z"]
 
-            elif amarelo_rect.collidepoint(pos) and lista[0] == 2:
-                print("Amarelo")
-                r_amarelo_claro(window)
-                SOM02.play()
-                pygame.time.wait(1500)
-                r_base(window)
-                pygame.time.wait(1500)
-                novo_teste(lista[0])
-                novo_teste(lista[1])
-
-            elif azul_rect.collidepoint(pos) and lista[0] == 3:
-                print("Azul")
-                r_azul_claro(window)
-                SOM03.play()
-                pygame.time.wait(1500)
-                r_base(window)
-                pygame.time.wait(1500)
-                novo_teste(lista[0])
-                novo_teste(lista[1])
-
-            else:
-                print("Você perdeu")
-                SOMERRO.play()
-                pygame.time.wait(1500)
-                game = False
+            if len(ck) >= 4:
+                if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and flag5 == True:
+                    print("PASSOU")
+                    round5()
+                    flag5 = False
+                    ck = ["z"]
+            if len(ck) >= 5:
+                if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and flag6 == True:
+                    print("NOVIDADE")
+                    round6()
+                    flag6 = False
+                    ck = ["z"]
+            if len(ck) >= 6:
+                if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and flag7 == True:
+                    print("FASE DA LAYNE")
+                    round7()
+                    flag7 = False
+                    ck = ["z"]
+                
 
 
 # FINALIZA
 pygame.quit()  # Função do PyGame que finaliza os recursos utilizados
+#lista[0] == 3
