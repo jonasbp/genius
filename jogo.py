@@ -165,6 +165,116 @@ def round7():
     novo_teste(lista[4])
     pygame.time.wait(500)
     novo_teste(lista[5])
+def round8():
+    r_base(window)
+    pygame.time.wait(500)
+    novo_teste(lista[0])
+    pygame.time.wait(500)
+    r_base(window)
+    pygame.time.wait(500)
+    novo_teste(lista[1])
+    pygame.time.wait(500)
+    novo_teste(lista[2])
+    pygame.time.wait(500)
+    novo_teste(lista[3])
+    pygame.time.wait(500)
+    novo_teste(lista[4])
+    pygame.time.wait(500)
+    novo_teste(lista[5])
+    pygame.time.wait(500)
+    novo_teste(lista[6])
+def round9():
+    r_base(window)
+    pygame.time.wait(500)
+    novo_teste(lista[0])
+    pygame.time.wait(500)
+    r_base(window)
+    pygame.time.wait(500)
+    novo_teste(lista[1])
+    pygame.time.wait(500)
+    novo_teste(lista[2])
+    pygame.time.wait(500)
+    novo_teste(lista[3])
+    pygame.time.wait(500)
+    novo_teste(lista[4])
+    pygame.time.wait(500)
+    novo_teste(lista[5])
+    pygame.time.wait(500)
+    novo_teste(lista[6])
+    pygame.time.wait(500)
+    novo_teste(lista[7])
+def round10():
+    r_base(window)
+    pygame.time.wait(500)
+    novo_teste(lista[0])
+    pygame.time.wait(500)
+    r_base(window)
+    pygame.time.wait(500)
+    novo_teste(lista[1])
+    pygame.time.wait(500)
+    novo_teste(lista[2])
+    pygame.time.wait(500)
+    novo_teste(lista[3])
+    pygame.time.wait(500)
+    novo_teste(lista[4])
+    pygame.time.wait(500)
+    novo_teste(lista[5])
+    pygame.time.wait(500)
+    novo_teste(lista[6])
+    pygame.time.wait(500)
+    novo_teste(lista[7])
+    pygame.time.wait(500)
+    novo_teste(lista[8])
+def round11():
+    r_base(window)
+    pygame.time.wait(500)
+    novo_teste(lista[0])
+    pygame.time.wait(500)
+    r_base(window)
+    pygame.time.wait(500)
+    novo_teste(lista[1])
+    pygame.time.wait(500)
+    novo_teste(lista[2])
+    pygame.time.wait(500)
+    novo_teste(lista[3])
+    pygame.time.wait(500)
+    novo_teste(lista[4])
+    pygame.time.wait(500)
+    novo_teste(lista[5])
+    pygame.time.wait(500)
+    novo_teste(lista[6])
+    pygame.time.wait(500)
+    novo_teste(lista[7])
+    pygame.time.wait(500)
+    novo_teste(lista[8])
+    pygame.time.wait(500)
+    novo_teste(lista[9])
+def round12():
+    r_base(window)
+    pygame.time.wait(500)
+    novo_teste(lista[0])
+    pygame.time.wait(500)
+    r_base(window)
+    pygame.time.wait(500)
+    novo_teste(lista[1])
+    pygame.time.wait(500)
+    novo_teste(lista[2])
+    pygame.time.wait(500)
+    novo_teste(lista[3])
+    pygame.time.wait(500)
+    novo_teste(lista[4])
+    pygame.time.wait(500)
+    novo_teste(lista[5])
+    pygame.time.wait(500)
+    novo_teste(lista[6])
+    pygame.time.wait(500)
+    novo_teste(lista[7])
+    pygame.time.wait(500)
+    novo_teste(lista[8])
+    pygame.time.wait(500)
+    novo_teste(lista[9])
+    pygame.time.wait(500)
+    novo_teste(lista[10])
 
 # ----- Gera tela principal
 window = pygame.display.set_mode((500, 400))
@@ -180,6 +290,11 @@ flag4 = True
 flag5 = True
 flag6 = True
 flag7 = True
+flag8 = True
+flag9 = True
+flag10 = True
+flag11 = True
+flag12 = True
 while game:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -240,6 +355,40 @@ while game:
                     print("FASE DA LAYNE")
                     round7()
                     flag7 = False
+                    ck = ["z"]
+
+            if len(ck) >= 7:
+                if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and flag8 == True:
+                    print("FASE DA JONAS")
+                    round8()
+                    flag8 = False
+                    ck = ["z"]
+
+            if len(ck) >= 8:
+                if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and ck[7] == lista[6] and flag9 == True:
+                    print("OLHAA")
+                    round9()
+                    flag9 = False
+                    ck = ["z"]
+
+            if len(ck) >= 9:
+                if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and ck[7] == lista[6] and ck[8] == lista[7] and flag10 == True:
+                    print("Quase")
+                    round10()
+                    flag10 = False
+                    ck = ["z"]
+
+            if len(ck) >= 10:
+                if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and ck[7] == lista[6] and ck[8] == lista[7] and ck[9] == lista[8] and flag11 == True:
+                    print("Uiii")
+                    round11()
+                    flag11 = False
+                    ck = ["z"]
+            if len(ck) >= 11:
+                if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and ck[7] == lista[6] and ck[8] == lista[7] and ck[9] == lista[8] and ck[10] == lista[9] and flag12 == True:
+                    print("Uiii")
+                    round12()
+                    flag12 = False
                     ck = ["z"]
                 
 
