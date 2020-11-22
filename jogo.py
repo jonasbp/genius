@@ -310,18 +310,30 @@ while game:
             pos = pygame.mouse.get_pos()
             if verde_rect.collidepoint(pos) == 1:
                 print("Você apertou certo")
+                r_verde_claro(window)
+                SOM00.play()
+                pygame.time.wait(500)
                 ck.append(0)
                 print(ck)
             if vermelho_rect.collidepoint(pos) == 1:
                 print("Você apertou certo")
+                r_vermelho_claro(window)
+                SOM01.play()
+                pygame.time.wait(500)
                 ck.append(1)
                 print(ck)
             if amarelo_rect.collidepoint(pos) == 1:
                 print("Você apertou certo")
+                r_amarelo_claro(window)
+                SOM02.play()
+                pygame.time.wait(500)
                 ck.append(2)
                 print(ck)
             if azul_rect.collidepoint(pos) == 1:
                 print("Você apertou certo")
+                r_azul_claro(window)
+                SOM03.play()
+                pygame.time.wait(500)
                 ck.append(3)
                 print(ck)
 
@@ -330,6 +342,7 @@ while game:
                 round3()
                 ck = ["z"]
             
+            
             if len(ck) >= 3:
                 if ck[1] == lista[0] and ck[2] == lista[1] and flag4 == True:
                     print("Next level")
@@ -337,6 +350,7 @@ while game:
                     print("aquiii")
                     flag4 = False
                     ck = ["z"]
+                
 
             if len(ck) >= 4:
                 if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and flag5 == True:
@@ -344,18 +358,23 @@ while game:
                     round5()
                     flag5 = False
                     ck = ["z"]
+                
+
             if len(ck) >= 5:
                 if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and flag6 == True:
                     print("NOVIDADE")
                     round6()
                     flag6 = False
                     ck = ["z"]
+                
+
             if len(ck) >= 6:
                 if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and flag7 == True:
                     print("FASE DA LAYNE")
                     round7()
                     flag7 = False
                     ck = ["z"]
+                
 
             if len(ck) >= 7:
                 if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and flag8 == True:
@@ -363,6 +382,7 @@ while game:
                     round8()
                     flag8 = False
                     ck = ["z"]
+                
 
             if len(ck) >= 8:
                 if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and ck[7] == lista[6] and flag9 == True:
@@ -370,6 +390,7 @@ while game:
                     round9()
                     flag9 = False
                     ck = ["z"]
+                
 
             if len(ck) >= 9:
                 if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and ck[7] == lista[6] and ck[8] == lista[7] and flag10 == True:
@@ -377,6 +398,7 @@ while game:
                     round10()
                     flag10 = False
                     ck = ["z"]
+               
 
             if len(ck) >= 10:
                 if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and ck[7] == lista[6] and ck[8] == lista[7] and ck[9] == lista[8] and flag11 == True:
@@ -384,12 +406,15 @@ while game:
                     round11()
                     flag11 = False
                     ck = ["z"]
+                
+
             if len(ck) >= 11:
                 if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and ck[7] == lista[6] and ck[8] == lista[7] and ck[9] == lista[8] and ck[10] == lista[9] and flag12 == True:
                     print("Uiii")
                     round12()
                     flag12 = False
                     ck = ["z"]
+                
                 
 
 
