@@ -276,6 +276,13 @@ def round12():
     pygame.time.wait(500)
     novo_teste(lista[10])
 
+def mostra_round(r):
+    for cor in lista[:r]:
+        r_base(window)
+        pygame.time.wait(500)
+        novo_teste(cor)
+
+
 # ----- Gera tela principal
 window = pygame.display.set_mode((500, 400))
 pygame.display.set_caption('GENIUS')
@@ -295,6 +302,8 @@ flag9 = True
 flag10 = True
 flag11 = True
 flag12 = True
+round_atual = 2
+cor_atual = 0
 while game:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -337,86 +346,96 @@ while game:
                 ck.append(3)
                 print(ck)
 
-            if ck[0] == lista[0] and ck[0] != "z":
-                print("0i")
-                round3()
-                ck = ["z"]
-            
-            
-            if len(ck) >= 3:
-                if ck[1] == lista[0] and ck[2] == lista[1] and flag4 == True:
-                    print("Next level")
-                    round4()
-                    print("aquiii")
-                    flag4 = False
+            if ck[0] != "z":
+                if ck[0] == lista[0]:
+                    print("0i")
+                    round3()
                     ck = ["z"]
+            else:
+                if ck[-1] == lista[cor_atual]:
+                    if len(ck) - 1 == round_atual:
+                        round_atual += 1
+                        mostra_round(round_atual)
+                        cor_atual = 0
+                        ck = ["z"] 
+                    else:
+                        cor_atual += 1
+                else:
+                    # FIM
+                    pass
+            # if len(ck) >= 3:
+            #     if ck[1] == lista[0] and ck[2] == lista[1] and flag4 == True:
+            #         print("Next level")
+            #         round4()
+            #         print("aquiii")
+            #         flag4 = False
+            #         ck = ["z"]
                 
 
-            if len(ck) >= 4:
-                if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and flag5 == True:
-                    print("PASSOU")
-                    round5()
-                    flag5 = False
-                    ck = ["z"]
+            # if len(ck) >= 4:
+            #     if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and flag5 == True:
+            #         print("PASSOU")
+            #         round5()
+            #         flag5 = False
+            #         ck = ["z"]
                 
 
-            if len(ck) >= 5:
-                if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and flag6 == True:
-                    print("NOVIDADE")
-                    round6()
-                    flag6 = False
-                    ck = ["z"]
+            # if len(ck) >= 5:
+            #     if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and flag6 == True:
+            #         print("NOVIDADE")
+            #         round6()
+            #         flag6 = False
+            #         ck = ["z"]
                 
 
-            if len(ck) >= 6:
-                if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and flag7 == True:
-                    print("FASE DA LAYNE")
-                    round7()
-                    flag7 = False
-                    ck = ["z"]
+            # if len(ck) >= 6:
+            #     if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and flag7 == True:
+            #         print("FASE DA LAYNE")
+            #         round7()
+            #         flag7 = False
+            #         ck = ["z"]
                 
 
-            if len(ck) >= 7:
-                if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and flag8 == True:
-                    print("FASE DA JONAS")
-                    round8()
-                    flag8 = False
-                    ck = ["z"]
+            # if len(ck) >= 7:
+            #     if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and flag8 == True:
+            #         print("FASE DA JONAS")
+            #         round8()
+            #         flag8 = False
+            #         ck = ["z"]
                 
 
-            if len(ck) >= 8:
-                if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and ck[7] == lista[6] and flag9 == True:
-                    print("OLHAA")
-                    round9()
-                    flag9 = False
-                    ck = ["z"]
+            # if len(ck) >= 8:
+            #     if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and ck[7] == lista[6] and flag9 == True:
+            #         print("OLHAA")
+            #         round9()
+            #         flag9 = False
+            #         ck = ["z"]
                 
 
-            if len(ck) >= 9:
-                if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and ck[7] == lista[6] and ck[8] == lista[7] and flag10 == True:
-                    print("Quase")
-                    round10()
-                    flag10 = False
-                    ck = ["z"]
+            # if len(ck) >= 9:
+            #     if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and ck[7] == lista[6] and ck[8] == lista[7] and flag10 == True:
+            #         print("Quase")
+            #         round10()
+            #         flag10 = False
+            #         ck = ["z"]
                
 
-            if len(ck) >= 10:
-                if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and ck[7] == lista[6] and ck[8] == lista[7] and ck[9] == lista[8] and flag11 == True:
-                    print("Uiii")
-                    round11()
-                    flag11 = False
-                    ck = ["z"]
+            # if len(ck) >= 10:
+            #     if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and ck[7] == lista[6] and ck[8] == lista[7] and ck[9] == lista[8] and flag11 == True:
+            #         print("Uiii")
+            #         round11()
+            #         flag11 = False
+            #         ck = ["z"]
                 
 
-            if len(ck) >= 11:
-                if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and ck[7] == lista[6] and ck[8] == lista[7] and ck[9] == lista[8] and ck[10] == lista[9] and flag12 == True:
-                    print("Uiii")
-                    round12()
-                    flag12 = False
-                    ck = ["z"]
+            # if len(ck) >= 11:
+            #     if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and ck[7] == lista[6] and ck[8] == lista[7] and ck[9] == lista[8] and ck[10] == lista[9] and flag12 == True:
+            #         print("Uiii")
+            #         round12()
+            #         flag12 = False
+            #         ck = ["z"]
                 
                 
-
 
 # FINALIZA
 pygame.quit()  # Função do PyGame que finaliza os recursos utilizados
