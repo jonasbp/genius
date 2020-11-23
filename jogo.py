@@ -37,13 +37,14 @@ AMARELO = (155,155,0)
 AMARELO_CLARO = (225,225,0)
 
 # Propriedade dos retângulos
-verde_rect = pygame.Rect(80,10,150,150)
-amarelo_rect = pygame.Rect(80,180,150,150)
-vermelho_rect = pygame.Rect(250,10,150,150)
-azul_rect = pygame.Rect(250,180,150,150)
+verde_rect = pygame.Rect(90,40,150,150)
+amarelo_rect = pygame.Rect(90,210,150,150)
+vermelho_rect = pygame.Rect(260,40,150,150)
+azul_rect = pygame.Rect(260,210,150,150)
 
 # Gerando sequencia de 10 cores
 lista = []
+lista_cor =["Verde", 'Amarelo', 'Vermelho', 'Azul']
 ck = []
 i = 0
 while i < 10:
@@ -86,23 +87,24 @@ def r_azul_claro(window):
     r_vermelho = pygame.draw.rect(window, (VERMELHO), (vermelho_rect))
     r_azul = pygame.draw.rect(window, (AZUL_CLARO), (azul_rect))
     pygame.display.update()
+
 def novo_teste(liga):
     if liga == 0:
         r_verde_claro(window)
         SOM00.play()
-        pygame.time.wait(1500)
+        pygame.time.wait(500)
     elif liga == 1:
         r_vermelho_claro(window)
         SOM01.play()
-        pygame.time.wait(1500)
+        pygame.time.wait(500)
     elif liga == 2:
         r_amarelo_claro(window)
         SOM02.play()
-        pygame.time.wait(1500)
+        pygame.time.wait(500)
     elif liga == 3:
         r_azul_claro(window)
         SOM03.play()
-        pygame.time.wait(1500)
+        pygame.time.wait(500)
 
 def round3():
     r_base(window)
@@ -112,169 +114,6 @@ def round3():
     r_base(window)
     pygame.time.wait(500)
     novo_teste(lista[1])
-
-def round4():
-    r_base(window)
-    pygame.time.wait(500)
-    novo_teste(lista[0])
-    pygame.time.wait(500)
-    r_base(window)
-    pygame.time.wait(500)
-    novo_teste(lista[1])
-    pygame.time.wait(500)
-    novo_teste(lista[2])
-def round5():
-    r_base(window)
-    pygame.time.wait(500)
-    novo_teste(lista[0])
-    pygame.time.wait(500)
-    r_base(window)
-    pygame.time.wait(500)
-    novo_teste(lista[1])
-    pygame.time.wait(500)
-    novo_teste(lista[2])
-    pygame.time.wait(500)
-    novo_teste(lista[3])
-def round6():
-    r_base(window)
-    pygame.time.wait(500)
-    novo_teste(lista[0])
-    pygame.time.wait(500)
-    r_base(window)
-    pygame.time.wait(500)
-    novo_teste(lista[1])
-    pygame.time.wait(500)
-    novo_teste(lista[2])
-    pygame.time.wait(500)
-    novo_teste(lista[3])
-    pygame.time.wait(500)
-    novo_teste(lista[4])
-def round7():
-    r_base(window)
-    pygame.time.wait(500)
-    novo_teste(lista[0])
-    pygame.time.wait(500)
-    r_base(window)
-    pygame.time.wait(500)
-    novo_teste(lista[1])
-    pygame.time.wait(500)
-    novo_teste(lista[2])
-    pygame.time.wait(500)
-    novo_teste(lista[3])
-    pygame.time.wait(500)
-    novo_teste(lista[4])
-    pygame.time.wait(500)
-    novo_teste(lista[5])
-def round8():
-    r_base(window)
-    pygame.time.wait(500)
-    novo_teste(lista[0])
-    pygame.time.wait(500)
-    r_base(window)
-    pygame.time.wait(500)
-    novo_teste(lista[1])
-    pygame.time.wait(500)
-    novo_teste(lista[2])
-    pygame.time.wait(500)
-    novo_teste(lista[3])
-    pygame.time.wait(500)
-    novo_teste(lista[4])
-    pygame.time.wait(500)
-    novo_teste(lista[5])
-    pygame.time.wait(500)
-    novo_teste(lista[6])
-def round9():
-    r_base(window)
-    pygame.time.wait(500)
-    novo_teste(lista[0])
-    pygame.time.wait(500)
-    r_base(window)
-    pygame.time.wait(500)
-    novo_teste(lista[1])
-    pygame.time.wait(500)
-    novo_teste(lista[2])
-    pygame.time.wait(500)
-    novo_teste(lista[3])
-    pygame.time.wait(500)
-    novo_teste(lista[4])
-    pygame.time.wait(500)
-    novo_teste(lista[5])
-    pygame.time.wait(500)
-    novo_teste(lista[6])
-    pygame.time.wait(500)
-    novo_teste(lista[7])
-def round10():
-    r_base(window)
-    pygame.time.wait(500)
-    novo_teste(lista[0])
-    pygame.time.wait(500)
-    r_base(window)
-    pygame.time.wait(500)
-    novo_teste(lista[1])
-    pygame.time.wait(500)
-    novo_teste(lista[2])
-    pygame.time.wait(500)
-    novo_teste(lista[3])
-    pygame.time.wait(500)
-    novo_teste(lista[4])
-    pygame.time.wait(500)
-    novo_teste(lista[5])
-    pygame.time.wait(500)
-    novo_teste(lista[6])
-    pygame.time.wait(500)
-    novo_teste(lista[7])
-    pygame.time.wait(500)
-    novo_teste(lista[8])
-def round11():
-    r_base(window)
-    pygame.time.wait(500)
-    novo_teste(lista[0])
-    pygame.time.wait(500)
-    r_base(window)
-    pygame.time.wait(500)
-    novo_teste(lista[1])
-    pygame.time.wait(500)
-    novo_teste(lista[2])
-    pygame.time.wait(500)
-    novo_teste(lista[3])
-    pygame.time.wait(500)
-    novo_teste(lista[4])
-    pygame.time.wait(500)
-    novo_teste(lista[5])
-    pygame.time.wait(500)
-    novo_teste(lista[6])
-    pygame.time.wait(500)
-    novo_teste(lista[7])
-    pygame.time.wait(500)
-    novo_teste(lista[8])
-    pygame.time.wait(500)
-    novo_teste(lista[9])
-def round12():
-    r_base(window)
-    pygame.time.wait(500)
-    novo_teste(lista[0])
-    pygame.time.wait(500)
-    r_base(window)
-    pygame.time.wait(500)
-    novo_teste(lista[1])
-    pygame.time.wait(500)
-    novo_teste(lista[2])
-    pygame.time.wait(500)
-    novo_teste(lista[3])
-    pygame.time.wait(500)
-    novo_teste(lista[4])
-    pygame.time.wait(500)
-    novo_teste(lista[5])
-    pygame.time.wait(500)
-    novo_teste(lista[6])
-    pygame.time.wait(500)
-    novo_teste(lista[7])
-    pygame.time.wait(500)
-    novo_teste(lista[8])
-    pygame.time.wait(500)
-    novo_teste(lista[9])
-    pygame.time.wait(500)
-    novo_teste(lista[10])
 
 def mostra_round(r):
     for cor in lista[:r]:
@@ -290,20 +129,14 @@ pygame.display.set_caption('GENIUS')
 # ----- Inicia estruturas de dados
 game = True
 flag0 = True
-flag1 = True
-flag2 = True
-flag3 = True
-flag4 = True
-flag5 = True
-flag6 = True
-flag7 = True
-flag8 = True
-flag9 = True
-flag10 = True
-flag11 = True
-flag12 = True
 round_atual = 2
 cor_atual = 0
+
+ # Desenhando o score
+text_surface = assets['score_font'].render("{:08d}".format(score), True, (255, 255, 255))
+text_rect = text_surface.get_rect()
+text_rect.midtop = (10,  10)
+window.blit(text_surface, text_rect)
 while game:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -318,39 +151,43 @@ while game:
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             pos = pygame.mouse.get_pos()
             if verde_rect.collidepoint(pos) == 1:
-                print("Você apertou certo")
+                print("Você apertou verde")
                 r_verde_claro(window)
                 SOM00.play()
                 pygame.time.wait(500)
                 ck.append(0)
                 print(ck)
             if vermelho_rect.collidepoint(pos) == 1:
-                print("Você apertou certo")
+                print("Você apertou vermelho")
                 r_vermelho_claro(window)
                 SOM01.play()
                 pygame.time.wait(500)
                 ck.append(1)
                 print(ck)
             if amarelo_rect.collidepoint(pos) == 1:
-                print("Você apertou certo")
+                print("Você apertou amarelo")
                 r_amarelo_claro(window)
                 SOM02.play()
                 pygame.time.wait(500)
                 ck.append(2)
                 print(ck)
             if azul_rect.collidepoint(pos) == 1:
-                print("Você apertou certo")
+                print("Você apertou azul")
                 r_azul_claro(window)
                 SOM03.play()
                 pygame.time.wait(500)
                 ck.append(3)
                 print(ck)
-
             if ck[0] != "z":
                 if ck[0] == lista[0]:
                     print("0i")
                     round3()
                     ck = ["z"]
+                    score += 100
+                else:
+                    print("você perdeu")
+                    game=False
+                    
             else:
                 if ck[-1] == lista[cor_atual]:
                     if len(ck) - 1 == round_atual:
@@ -358,85 +195,12 @@ while game:
                         mostra_round(round_atual)
                         cor_atual = 0
                         ck = ["z"] 
+                        score+=100
                     else:
                         cor_atual += 1
                 else:
-                    # FIM
+                    game=False
                     pass
-            # if len(ck) >= 3:
-            #     if ck[1] == lista[0] and ck[2] == lista[1] and flag4 == True:
-            #         print("Next level")
-            #         round4()
-            #         print("aquiii")
-            #         flag4 = False
-            #         ck = ["z"]
-                
 
-            # if len(ck) >= 4:
-            #     if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and flag5 == True:
-            #         print("PASSOU")
-            #         round5()
-            #         flag5 = False
-            #         ck = ["z"]
-                
-
-            # if len(ck) >= 5:
-            #     if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and flag6 == True:
-            #         print("NOVIDADE")
-            #         round6()
-            #         flag6 = False
-            #         ck = ["z"]
-                
-
-            # if len(ck) >= 6:
-            #     if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and flag7 == True:
-            #         print("FASE DA LAYNE")
-            #         round7()
-            #         flag7 = False
-            #         ck = ["z"]
-                
-
-            # if len(ck) >= 7:
-            #     if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and flag8 == True:
-            #         print("FASE DA JONAS")
-            #         round8()
-            #         flag8 = False
-            #         ck = ["z"]
-                
-
-            # if len(ck) >= 8:
-            #     if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and ck[7] == lista[6] and flag9 == True:
-            #         print("OLHAA")
-            #         round9()
-            #         flag9 = False
-            #         ck = ["z"]
-                
-
-            # if len(ck) >= 9:
-            #     if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and ck[7] == lista[6] and ck[8] == lista[7] and flag10 == True:
-            #         print("Quase")
-            #         round10()
-            #         flag10 = False
-            #         ck = ["z"]
-               
-
-            # if len(ck) >= 10:
-            #     if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and ck[7] == lista[6] and ck[8] == lista[7] and ck[9] == lista[8] and flag11 == True:
-            #         print("Uiii")
-            #         round11()
-            #         flag11 = False
-            #         ck = ["z"]
-                
-
-            # if len(ck) >= 11:
-            #     if ck[1] == lista[0] and ck[2] == lista[1] and ck[3] == lista[2] and ck[4] == lista[3] and ck[5] == lista[4] and ck[6] == lista[5] and ck[7] == lista[6] and ck[8] == lista[7] and ck[9] == lista[8] and ck[10] == lista[9] and flag12 == True:
-            #         print("Uiii")
-            #         round12()
-            #         flag12 = False
-            #         ck = ["z"]
-                
-                
-
-# FINALIZA
+                    # FINALIZA
 pygame.quit()  # Função do PyGame que finaliza os recursos utilizados
-#lista[0] == 3
