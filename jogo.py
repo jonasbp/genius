@@ -47,6 +47,7 @@ lista = []
 lista_cor =["Verde", 'Amarelo', 'Vermelho', 'Azul']
 ck = []
 i = 0
+assets={}
 while i < 10:
     lista.append(random.randint(0, 3))
     i += 1
@@ -133,10 +134,7 @@ round_atual = 2
 cor_atual = 0
 
  # Desenhando o score
-text_surface = assets['score_font'].render("{:08d}".format(score), True, (255, 255, 255))
-text_rect = text_surface.get_rect()
-text_rect.midtop = (10,  10)
-window.blit(text_surface, text_rect)
+
 while game:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
