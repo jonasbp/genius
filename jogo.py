@@ -16,6 +16,10 @@ import time
 pygame.init()
 pygame.mixer.init()
 
+assets = {}
+assets["score_font"] = pygame.font.Font('assets/font/PressStart2P.ttf', 28)
+score = 0
+
 # Carrega os sons do jogo
 SOM00 = pygame.mixer.Sound('sons/00.wav') # VERDE
 SOM01 = pygame.mixer.Sound('sons/01.wav') # VERMELHO
@@ -47,7 +51,6 @@ lista = []
 lista_cor =["Verde", 'Amarelo', 'Vermelho', 'Azul']
 ck = []
 i = 0
-assets={}
 while i < 10:
     lista.append(random.randint(0, 3))
     i += 1
@@ -133,8 +136,6 @@ flag0 = True
 round_atual = 2
 cor_atual = 0
 
- # Desenhando o score
-
 while game:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -200,5 +201,11 @@ while game:
                     game=False
                     pass
 
+    text_surface = assets['score_font'].render("{:08d}".format(score), True, (255, 255, 255))
+    text_rect = text_surface.get_rect()
+    text_rect.midtop = (150,  10)
+    window.blit(text_surface, text_rect)
+
+    pygame.display.update()
                     # FINALIZA
 pygame.quit()  # Função do PyGame que finaliza os recursos utilizados
