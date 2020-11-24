@@ -145,19 +145,19 @@ def novo_teste(liga):
     if liga == 0:
         r_verde_claro(window)
         SOM00.play()
-        pygame.time.wait(500)
+        pygame.time.wait(300)
     elif liga == 1:
         r_vermelho_claro(window)
         SOM01.play()
-        pygame.time.wait(500)
+        pygame.time.wait(300)
     elif liga == 2:
         r_amarelo_claro(window)
         SOM02.play()
-        pygame.time.wait(500)
+        pygame.time.wait(300)
     elif liga == 3:
         r_azul_claro(window)
         SOM03.play()
-        pygame.time.wait(500)
+        pygame.time.wait(300)
 
 def round3():
     r_base(window)
@@ -171,7 +171,7 @@ def round3():
 def mostra_round(r):
     for cor in lista[:r]:
         r_base(window)
-        pygame.time.wait(500)
+        pygame.time.wait(250)
         novo_teste(cor)
         
 # ----- Gera tela principal
@@ -192,7 +192,7 @@ while game:
 
         #TOCA O 1
         if flag0 == True:
-            pygame.time.wait(1000)
+            pygame.time.wait(1500)
             novo_teste(lista[0])
             flag0 = False
 
@@ -202,28 +202,28 @@ while game:
                 print("Você apertou verde")
                 r_verde_claro(window)
                 SOM00.play()
-                pygame.time.wait(500)
+                pygame.time.wait(250)
                 ck.append(0)
                 print(ck)
             if vermelho_rect.collidepoint(pos) == 1:
                 print("Você apertou vermelho")
                 r_vermelho_claro(window)
                 SOM01.play()
-                pygame.time.wait(500)
+                pygame.time.wait(250)
                 ck.append(1)
                 print(ck)
             if amarelo_rect.collidepoint(pos) == 1:
                 print("Você apertou amarelo")
                 r_amarelo_claro(window)
                 SOM02.play()
-                pygame.time.wait(500)
+                pygame.time.wait(250)
                 ck.append(2)
                 print(ck)
             if azul_rect.collidepoint(pos) == 1:
                 print("Você apertou azul")
                 r_azul_claro(window)
                 SOM03.play()
-                pygame.time.wait(1000)
+                pygame.time.wait(250)
                 ck.append(3)
                 print(ck)
             if ck[0] != "z":
@@ -258,7 +258,6 @@ while game:
                         cor_atual += 1
                 else:
                     SOMERRO.play()
-                    pygame.time.wait(1000)
                     game=jogar_novamente()
                     if game:
                         lista = []
@@ -272,7 +271,7 @@ while game:
                     else:
                         pygame.quit()
 
-                    
+    #Exibe a pontuação              
     text_surface = assets['score_font'].render("{:08d}".format(score), True, (255, 255, 255))
     text_rect = text_surface.get_rect()
     text_rect.midtop = (125,  10)
