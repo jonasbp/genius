@@ -244,6 +244,11 @@ while tela_principal:
     pygame.display.update()
     SOMTELAPRINCIPAL.play()
     pygame.time.wait(2000)
+    fundo = pygame.image.load('assets/img/guide.png').convert()
+    window.blit(fundo, (0,0))
+    pygame.display.update()
+    SOMTELAPRINCIPAL.play()
+    pygame.time.wait(10000)
     j=nivel()
     aleatorio(j)
     tela_principal=False
