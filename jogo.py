@@ -18,6 +18,7 @@ pygame.mixer.init()
 
 assets = {}
 assets["score_font"] = pygame.font.Font('assets/font/PressStart2P.ttf', 28)
+assets["play_again_font"] = pygame.font.Font('assets/font/PressStart2P.ttf', 14)
 score = 0
 
 # Carrega os sons do jogo
@@ -45,16 +46,40 @@ verde_rect = pygame.Rect(90,40,150,150)
 amarelo_rect = pygame.Rect(90,210,150,150)
 vermelho_rect = pygame.Rect(260,40,150,150)
 azul_rect = pygame.Rect(260,210,150,150)
-
+def jogar_novamente():
+    while True:
+        for evento in pygame.event.get():
+            if evento.type == pygame.QUIT:
+                game=False
+            if evento.type == pygame.MOUSEBUTTONDOWN:
+                pos = pygame.mouse.get_pos()
+                if botao.collidepoint(pos):
+                    window.fill((0, 0, 0))
+                    pygame.display.update()
+                    return True
+                else:
+                    return False
+        
+        window.fill((0, 0, 0))
+        botao = pygame.draw.rect(window, (255, 140, 0), (100, 175, 300, 50))
+        text_surface = assets['play_again_font'].render("Jogar novamente", True, (255, 255, 255))
+        text_rect = text_surface.get_rect()
+        text_rect.midtop = (250,  190)
+        window.blit(text_surface, text_rect)
+        pygame.display.update()
 # Gerando sequencia de 10 cores
 lista = []
-lista_cor =["Verde", 'Amarelo', 'Vermelho', 'Azul']
 ck = []
-i = 0
-while i < 10:
-    lista.append(random.randint(0, 3))
-    i += 1
-print(lista)
+
+def aleatorio():
+    i=0
+    while i < 10:
+        lista.append(random.randint(0, 3))
+        i += 1
+    print(lista)
+    return lista
+
+lista=aleatorio()
 #POSSIBILIDADES DE RETÂNGULOS
 def r_base(window):
     window.fill((0, 0, 0))  # Preenche com a cor branca
@@ -124,8 +149,7 @@ def mostra_round(r):
         r_base(window)
         pygame.time.wait(500)
         novo_teste(cor)
-
-
+        
 # ----- Gera tela principal
 window = pygame.display.set_mode((500, 400))
 pygame.display.set_caption('GENIUS')
@@ -185,7 +209,17 @@ while game:
                     score += 100
                 else:
                     print("você perdeu")
-                    game=False
+                    SOMERRO.play()
+                    pygame.time.wait(1000)
+                    game=jogar_novamente()
+                    if game:
+                        lista = []
+                        ck = []
+                        aleatorio()
+                        score=0
+                        flag0 = True
+                        round_atual = 2
+                        cor_atual = 0
                     
             else:
                 if ck[-1] == lista[cor_atual]:
@@ -198,14 +232,26 @@ while game:
                     else:
                         cor_atual += 1
                 else:
-                    game=False
-                    pass
+                    SOMERRO.play()
+                    pygame.time.wait(1000)
+                    game=jogar_novamente()
+                    if game:
+                        lista = []
+                        ck = []
+                        aleatorio()
+                        score=0
+                        flag0 = True
+                        round_atual = 2
+                        cor_atual = 0
+                    else:
+                        pygame.quit()
 
+                    
     text_surface = assets['score_font'].render("{:08d}".format(score), True, (255, 255, 255))
     text_rect = text_surface.get_rect()
     text_rect.midtop = (150,  10)
     window.blit(text_surface, text_rect)
 
     pygame.display.update()
-                    # FINALIZA
+    # FINALIZA
 pygame.quit()  # Função do PyGame que finaliza os recursos utilizados
