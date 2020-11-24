@@ -27,6 +27,7 @@ SOM01 = pygame.mixer.Sound('sons/01.wav') # VERMELHO
 SOM02 = pygame.mixer.Sound('sons/02.wav') # AMARELO
 SOM03 = pygame.mixer.Sound('sons/03.wav') # AZUL
 SOMERRO = pygame.mixer.Sound('sons/erro.wav') # SOM DE ERRO
+SOMVITORIA = pygame.mixer.Sound('sons/vitoria.wav') #SOM VITORIA
 
 #CORES
 VERDE = (0,155,0)
@@ -46,7 +47,7 @@ verde_rect = pygame.Rect(90,40,150,150)
 amarelo_rect = pygame.Rect(90,210,150,150)
 vermelho_rect = pygame.Rect(260,40,150,150)
 azul_rect = pygame.Rect(260,210,150,150)
-def jogar_novamente():
+def jogar_novamente(decisao):
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -68,27 +69,35 @@ def jogar_novamente():
         text_rect = text_surface.get_rect()
         text_rect.midtop = (250,  190)
         window.blit(text_surface, text_rect)
-        #Mostra a pontuação
-        text_surface = assets['score_font'].render("{:08d}".format(score), True, (255, 255, 255))
-        text_rect = text_surface.get_rect()
-        text_rect.midtop = (250,  140)
-        window.blit(text_surface, text_rect)
-        texto_surface = assets['score_font'].render("Pontuação:", True, (255, 255, 255))
-        texto_rect = text_surface.get_rect()
-        texto_rect.midtop = (230,  100)
-        window.blit(texto_surface, texto_rect)
-        #Exibe mensagem "Você perdeu"
-        texto_surface = assets['score_font'].render("Você perdeu", True, (255, 255, 255))
-        texto_rect = text_surface.get_rect()
-        texto_rect.midtop = (210,  60)
-        window.blit(texto_surface, texto_rect)
         #Botão sair
         botao_sair = pygame.draw.rect(window, (255, 140, 0), (125, 275, 250, 50))
         text_surface = assets['play_again_font'].render("Sair", True, (255, 255, 255))
         text_rect = text_surface.get_rect()
         text_rect.midtop = (250,  290)
         window.blit(text_surface, text_rect)
-        
+        #Decide entre se o jogador perdeu ou ganhou
+        if decisao=="derrota":
+            #Exibe mensagem "Você perdeu"
+            texto_surface = assets['score_font'].render("Você perdeu", True, (255, 255, 255))
+            texto_rect = text_surface.get_rect()
+            texto_rect.midtop = (125,  60)
+            window.blit(texto_surface, texto_rect)
+            #Mostra a pontuação
+            text_surface = assets['score_font'].render("{:08d}".format(score), True, (255, 255, 255))
+            text_rect = text_surface.get_rect()
+            text_rect.midtop = (250,  140)
+            window.blit(text_surface, text_rect)
+            texto_surface = assets['score_font'].render("Pontuação:", True, (255, 255, 255))
+            texto_rect = text_surface.get_rect()
+            texto_rect.midtop = (230,  100)
+            window.blit(texto_surface, texto_rect)
+        elif decisao=="vitoria":
+            #Exibe a mensagem "Você ganhou"
+            texto_surface = assets['score_font'].render("Você ganhou", True, (255, 255, 255))
+            texto_rect = text_surface.get_rect()
+            texto_rect.midtop = (130,  60)
+            window.blit(texto_surface, texto_rect)
+
         pygame.display.update()
 # Gerando sequencia de 10 cores
 lista = []
@@ -172,8 +181,7 @@ def mostra_round(r):
     for cor in lista[:r]:
         r_base(window)
         pygame.time.wait(250)
-        novo_teste(cor)
-        
+        novo_teste(cor)   
 # ----- Gera tela principal
 window = pygame.display.set_mode((500, 400))
 pygame.display.set_caption('GENIUS')
@@ -236,7 +244,7 @@ while game:
                     print("você perdeu")
                     SOMERRO.play()
                     pygame.time.wait(1000)
-                    game=jogar_novamente()
+                    game=jogar_novamente("derrota")
                     if game:
                         lista = []
                         ck = []
@@ -245,20 +253,36 @@ while game:
                         flag0 = True
                         round_atual = 2
                         cor_atual = 0
-                    
+                        continue
+                    else:
+                        pygame.quit()  
             else:
                 if ck[-1] == lista[cor_atual]:
                     if len(ck) - 1 == round_atual:
                         round_atual += 1
-                        mostra_round(round_atual)
-                        cor_atual = 0
-                        ck = ["z"] 
                         score+=100
+                        if score==1000:
+                            SOMVITORIA.play()
+                            game=jogar_novamente("vitoria")
+                            if game:
+                                lista = []
+                                ck = []
+                                aleatorio()
+                                score=0
+                                flag0 = True
+                                round_atual = 2
+                                cor_atual = 0
+                            else:
+                                pygame.quit()
+                        else:
+                            mostra_round(round_atual)
+                            cor_atual = 0
+                            ck = ["z"] 
                     else:
                         cor_atual += 1
                 else:
                     SOMERRO.play()
-                    game=jogar_novamente()
+                    game=jogar_novamente("derrota")
                     if game:
                         lista = []
                         ck = []
