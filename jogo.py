@@ -1,7 +1,7 @@
 # PROJETO FINAL DESIGN DE SOFTWARE
 # JOGO GENIUS
 # INSPER 2020
-# Jonas Bonfá Pelegrina,Layne Pereira Silva,Giancarlo
+# Jonas Bonfá Pelegrina,Layne Pereira Silva,Giancarlo Vanoni Ruggiero
 
 # CONVERSÃO DE NÚMERO PARA COR
 # 0 - Verde
@@ -48,24 +48,47 @@ vermelho_rect = pygame.Rect(260,40,150,150)
 azul_rect = pygame.Rect(260,210,150,150)
 def jogar_novamente():
     while True:
-        for evento in pygame.event.get():
-            if evento.type == pygame.QUIT:
-                game=False
-            if evento.type == pygame.MOUSEBUTTONDOWN:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                return False
+            if event.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()
                 if botao.collidepoint(pos):
                     window.fill((0, 0, 0))
                     pygame.display.update()
                     return True
-                else:
+                elif botao_sair.collidepoint(pos):
                     return False
         
         window.fill((0, 0, 0))
+
+        #Botão jogar novamente
         botao = pygame.draw.rect(window, (255, 140, 0), (100, 175, 300, 50))
         text_surface = assets['play_again_font'].render("Jogar novamente", True, (255, 255, 255))
         text_rect = text_surface.get_rect()
         text_rect.midtop = (250,  190)
         window.blit(text_surface, text_rect)
+        #Mostra a pontuação
+        text_surface = assets['score_font'].render("{:08d}".format(score), True, (255, 255, 255))
+        text_rect = text_surface.get_rect()
+        text_rect.midtop = (250,  140)
+        window.blit(text_surface, text_rect)
+        texto_surface = assets['score_font'].render("Pontuação:", True, (255, 255, 255))
+        texto_rect = text_surface.get_rect()
+        texto_rect.midtop = (230,  100)
+        window.blit(texto_surface, texto_rect)
+        #Exibe mensagem "Você perdeu"
+        texto_surface = assets['score_font'].render("Você perdeu", True, (255, 255, 255))
+        texto_rect = text_surface.get_rect()
+        texto_rect.midtop = (210,  60)
+        window.blit(texto_surface, texto_rect)
+        #Botão sair
+        botao_sair = pygame.draw.rect(window, (255, 140, 0), (125, 275, 250, 50))
+        text_surface = assets['play_again_font'].render("Sair", True, (255, 255, 255))
+        text_rect = text_surface.get_rect()
+        text_rect.midtop = (250,  290)
+        window.blit(text_surface, text_rect)
+        
         pygame.display.update()
 # Gerando sequencia de 10 cores
 lista = []
@@ -80,6 +103,7 @@ def aleatorio():
     return lista
 
 lista=aleatorio()
+
 #POSSIBILIDADES DE RETÂNGULOS
 def r_base(window):
     window.fill((0, 0, 0))  # Preenche com a cor branca
@@ -168,6 +192,7 @@ while game:
 
         #TOCA O 1
         if flag0 == True:
+            pygame.time.wait(1000)
             novo_teste(lista[0])
             flag0 = False
 
@@ -198,7 +223,7 @@ while game:
                 print("Você apertou azul")
                 r_azul_claro(window)
                 SOM03.play()
-                pygame.time.wait(500)
+                pygame.time.wait(1000)
                 ck.append(3)
                 print(ck)
             if ck[0] != "z":
@@ -243,13 +268,14 @@ while game:
                         flag0 = True
                         round_atual = 2
                         cor_atual = 0
+                        continue
                     else:
                         pygame.quit()
 
                     
     text_surface = assets['score_font'].render("{:08d}".format(score), True, (255, 255, 255))
     text_rect = text_surface.get_rect()
-    text_rect.midtop = (150,  10)
+    text_rect.midtop = (125,  10)
     window.blit(text_surface, text_rect)
 
     pygame.display.update()
