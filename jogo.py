@@ -155,39 +155,44 @@ def aleatorio(j):
 
 #POSSIBILIDADES DE RETÂNGULOS
 def r_base(window):
-    window.fill((0, 0, 0))  # Preenche com a cor branca
+a    window.fill((0,0,0))
     r_verde = pygame.draw.rect(window, (VERDE), (verde_rect))
     r_amarelo = pygame.draw.rect(window, (AMARELO), (amarelo_rect))
     r_vermelho = pygame.draw.rect(window, (VERMELHO), (vermelho_rect))
     r_azul = pygame.draw.rect(window, (AZUL), (azul_rect))
+    placar(score)
     pygame.display.update()
 def r_verde_claro(window):
-    window.fill((0, 0, 0))  # Preenche com a cor branca
+    window.fill((0,0,0))
     r_verde = pygame.draw.rect(window, (VERDE_CLARO), (verde_rect))
     r_amarelo = pygame.draw.rect(window, (AMARELO), (amarelo_rect))
     r_vermelho = pygame.draw.rect(window, (VERMELHO), (vermelho_rect))
     r_azul = pygame.draw.rect(window, (AZUL), (azul_rect))
+    placar(score)
     pygame.display.update()
 def r_vermelho_claro(window):
-    window.fill((0, 0, 0))  # Preenche com a cor branca
+    window.fill((0,0,0))
     r_verde = pygame.draw.rect(window, (VERDE), (verde_rect))
     r_amarelo = pygame.draw.rect(window, (AMARELO), (amarelo_rect))
     r_vermelho = pygame.draw.rect(window, (VERMELHO_CLARO), (vermelho_rect))
     r_azul = pygame.draw.rect(window, (AZUL), (azul_rect))
+    placar(score)
     pygame.display.update()
 def r_amarelo_claro(window):
-    window.fill((0, 0, 0))  # Preenche com a cor branca
+    window.fill((0,0,0))
     r_verde = pygame.draw.rect(window, (VERDE), (verde_rect))
     r_amarelo = pygame.draw.rect(window, (AMARELO_CLARO), (amarelo_rect))
     r_vermelho = pygame.draw.rect(window, (VERMELHO), (vermelho_rect))
     r_azul = pygame.draw.rect(window, (AZUL), (azul_rect))
+    placar(score)
     pygame.display.update()
 def r_azul_claro(window):
-    window.fill((0, 0, 0))  # Preenche com a cor branca
+    window.fill((0,0,0))
     r_verde = pygame.draw.rect(window, (VERDE), (verde_rect))
     r_amarelo = pygame.draw.rect(window, (AMARELO), (amarelo_rect))
     r_vermelho = pygame.draw.rect(window, (VERMELHO), (vermelho_rect))
     r_azul = pygame.draw.rect(window, (AZUL_CLARO), (azul_rect))
+    placar(score)
     pygame.display.update()
 
 def novo_teste(liga):
@@ -210,11 +215,11 @@ def novo_teste(liga):
 
 def round3():
     r_base(window)
-    pygame.time.wait(500)
+    pygame.time.wait(250)
     novo_teste(lista[0])
-    pygame.time.wait(500)
+    pygame.time.wait(250)
     r_base(window)
-    pygame.time.wait(500)
+    pygame.time.wait(250)
     novo_teste(lista[1])
 
 def mostra_round(r):
@@ -350,13 +355,13 @@ while game:
                     else:
                         pygame.quit()
 
-    #Exibe a pontuação              
-    text_surface = assets['score_font'].render("{:08d}".format(score), True, (255, 255, 255))
-    text_rect = text_surface.get_rect()
-    text_rect.midtop = (125,  10)
-    window.blit(text_surface, text_rect)
+    def placar(score):
+    #Exibe a pontuação   
+        text_surface = assets['score_font'].render("{:08d}".format(score), True, (255, 255, 255))
+        text_rect = text_surface.get_rect()
+        text_rect.midtop = (125,  10)
+        window.blit(text_surface, text_rect)
 
-    pygame.display.update()
     # FINALIZA
 pygame.quit()  # Função do PyGame que finaliza os recursos utilizados
         
