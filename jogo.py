@@ -155,7 +155,7 @@ def aleatorio(j):
 
 #POSSIBILIDADES DE RETÂNGULOS
 def r_base(window):
-a    window.fill((0,0,0))
+    window.fill((0,0,0))
     r_verde = pygame.draw.rect(window, (VERDE), (verde_rect))
     r_amarelo = pygame.draw.rect(window, (AMARELO), (amarelo_rect))
     r_vermelho = pygame.draw.rect(window, (VERMELHO), (vermelho_rect))
@@ -324,7 +324,7 @@ while game:
                             game=jogar_novamente("vitoria")
                             if game:
                                 lista=[]
-                                j=nivel
+                                j=nivel()
                                 lista = aleatorio(j)
                                 ck = []
                                 score=0
