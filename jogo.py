@@ -19,6 +19,7 @@ pygame.mixer.init()
 assets = {}
 assets["score_font"] = pygame.font.Font('assets/font/PressStart2P.ttf', 28)
 assets["play_again_font"] = pygame.font.Font('assets/font/PressStart2P.ttf', 14)
+
 score = 0
 
 # Carrega os sons do jogo
@@ -28,6 +29,7 @@ SOM02 = pygame.mixer.Sound('sons/02.wav') # AMARELO
 SOM03 = pygame.mixer.Sound('sons/03.wav') # AZUL
 SOMERRO = pygame.mixer.Sound('sons/erro.wav') # SOM DE ERRO
 SOMVITORIA = pygame.mixer.Sound('sons/vitoria.wav') #SOM VITORIA
+SOMTELAPRINCIPAL = pygame.mixer.Sound('sons/tela_inicial.ogg') #SOM TELA PRINCIPAL
 
 #CORES
 VERDE = (0,155,0)
@@ -103,15 +105,15 @@ def jogar_novamente(decisao):
 lista = []
 ck = []
 
-def aleatorio():
+def aleatorio(j):
     i=0
-    while i < 10:
+    while i < j:
         lista.append(random.randint(0, 3))
         i += 1
     print(lista)
     return lista
 
-lista=aleatorio()
+lista=aleatorio(20)
 
 #POSSIBILIDADES DE RETÂNGULOS
 def r_base(window):
@@ -187,11 +189,21 @@ window = pygame.display.set_mode((500, 400))
 pygame.display.set_caption('GENIUS')
 
 # ----- Inicia estruturas de dados
-game = True
+game = False
 flag0 = True
 round_atual = 2
 cor_atual = 0
+tela_principal=True
 
+while tela_principal:
+    fundo = pygame.image.load('assets/img/Tela_principal.jpeg').convert()
+    window.blit(fundo, (0,0))
+    pygame.display.update()
+    SOMTELAPRINCIPAL.play()
+    pygame.time.wait(2000)
+    tela_principal=False
+    game=True
+    
 while game:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -286,7 +298,7 @@ while game:
                     if game:
                         lista = []
                         ck = []
-                        aleatorio()
+                        lista=aleatorio(20)
                         score=0
                         flag0 = True
                         round_atual = 2
