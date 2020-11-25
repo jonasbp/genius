@@ -30,6 +30,7 @@ SOM03 = pygame.mixer.Sound('sons/03.wav') # AZUL
 SOMERRO = pygame.mixer.Sound('sons/erro.wav') # SOM DE ERRO
 SOMVITORIA = pygame.mixer.Sound('sons/vitoria.wav') #SOM VITORIA
 SOMTELAPRINCIPAL = pygame.mixer.Sound('sons/tela_inicial.ogg') #SOM TELA PRINCIPAL
+SOMMENU = pygame.mixer.Sound('sons/som_menu.wav') #SOM TELA PRINCIPAL
 
 #CORES
 VERDE = (0,155,0)
@@ -58,9 +59,10 @@ def jogar_novamente(decisao):
                 pos = pygame.mouse.get_pos()
                 if botao.collidepoint(pos):
                     window.fill((0, 0, 0))
-                    pygame.display.update()
+                    SOMMENU.play()
                     return True
                 elif botao_sair.collidepoint(pos):
+                    SOMMENU.play()
                     return False
         
         window.fill((0, 0, 0))
@@ -113,11 +115,13 @@ def nivel():
                 pos = pygame.mouse.get_pos()
                 if botao_10.collidepoint(pos):
                     window.fill((0, 0, 0))
-                    pygame.display.update()
+                    SOMMENU.play()
                     return int(10)
                 elif botao_20.collidepoint(pos):
+                    SOMMENU.play()
                     return int(20)
                 elif botao_40.collidepoint(pos):
+                    SOMMENU.play()
                     return int(40)
         #Texto escrito "selecione"
         window.fill((0, 0, 0))
