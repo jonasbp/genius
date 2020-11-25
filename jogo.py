@@ -103,7 +103,7 @@ def jogar_novamente(decisao):
         pygame.display.update()
 # Gerando sequencia de 10 cores
 lista = []
-ck = []
+ck = ["z"]
 def nivel():
  while True:
         for event in pygame.event.get():
@@ -213,15 +213,6 @@ def novo_teste(liga):
         SOM03.play()
         pygame.time.wait(300)
 
-def round3():
-    r_base(window)
-    pygame.time.wait(250)
-    novo_teste(lista[0])
-    pygame.time.wait(250)
-    r_base(window)
-    pygame.time.wait(250)
-    novo_teste(lista[1])
-
 def mostra_round(r):
     for cor in lista[:r]:
         r_base(window)
@@ -234,7 +225,7 @@ pygame.display.set_caption('GENIUS')
 # ----- Inicia estruturas de dados
 game = False
 flag0 = True
-round_atual = 2
+round_atual = 1
 cor_atual = 0
 tela_principal=True
 
@@ -296,30 +287,8 @@ while game:
                 pygame.time.wait(250)
                 ck.append(3)
                 print(ck)
-            if ck[0] != "z":
-                if ck[0] == lista[0]:
-                    print("0i")
-                    round3()
-                    ck = ["z"]
-                    score += 100
-                else:
-                    print("você perdeu")
-                    SOMERRO.play()
-                    pygame.time.wait(1000)
-                    game=jogar_novamente("derrota")
-                    if game:
-                        lista = []
-                        ck = []
-                        j=nivel()
-                        lista=aleatorio(j)
-                        score=0
-                        flag0 = True
-                        round_atual = 2
-                        cor_atual = 0
-                        continue
-                    else:
-                        pygame.quit()  
-            else:
+          
+            if ck[0]=="z":
                 if ck[-1] == lista[cor_atual]:
                     if len(ck) - 1 == round_atual:
                         round_atual += 1
@@ -331,10 +300,10 @@ while game:
                                 lista=[]
                                 j=nivel()
                                 lista = aleatorio(j)
-                                ck = []
+                                ck = ["z"]
                                 score=0
                                 flag0 = True
-                                round_atual = 2
+                                round_atual = 1
                                 cor_atual = 0
                             else:
                                 pygame.quit()
@@ -349,12 +318,12 @@ while game:
                     game=jogar_novamente("derrota")
                     if game:
                         lista = []
-                        ck = []
+                        ck = ["z"]
                         j=nivel()
                         lista=aleatorio(j)
                         score=0
                         flag0 = True
-                        round_atual = 2
+                        round_atual = 1
                         cor_atual = 0
                         continue
                     else:
