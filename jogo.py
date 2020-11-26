@@ -61,7 +61,7 @@ def principal(window):
         fundo = pygame.image.load('assets/img/guide.png').convert()
         window.blit(fundo, (0,0))
         pygame.display.update()
-        assets.assets["SOMTELAPRINCIPAL"]
+        assets.assets["SOMTELAPRINCIPAL"].play()
         pygame.time.wait(5000)
         j=nivel_select.nivel(window)
         nivel_select.aleatorio(j,lista)
