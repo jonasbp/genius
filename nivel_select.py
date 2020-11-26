@@ -1,3 +1,13 @@
+# PROJETO FINAL DESIGN DE SOFTWARE
+# JOGO GENIUS
+# INSPER 2020
+# Jonas Bonfá Pelegrina,Layne Pereira Silva,Giancarlo Vanoni Ruggiero
+
+# CONVERSÃO DE NÚMERO PARA COR
+# 0 - Verde
+# 1 - Vermelho
+# 2 - Amarelo
+# 3 - Azul
 import pygame
 import assets
 import random
