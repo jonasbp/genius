@@ -6,7 +6,7 @@ Equipe: Giancarlo Vanoni Ruggiero(@Gian2206), Jonas Bonfá Pelegrina(@jonasbp) e
 Data: 24/11/2020 </br>
 
 ## Vídeo mostrando o jogo
-Link do vídeo :
+Link do vídeo : https://youtu.be/I8DpbRYvg9o
 
 ### Instalando dependências
 Pygame </br>
